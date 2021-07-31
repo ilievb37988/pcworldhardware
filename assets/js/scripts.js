@@ -805,12 +805,23 @@ PAGE JS
 	/*===================================*
 	26. ONLOAD POPUP JS
 	*===================================*/
-	
+	$(document).on('ready', function(){
+		$("#popupSubscription").click(function(){
+			const isShowagainClicked = document.querySelector("#dontShowAgain");
+			if (isShowagainClicked){
+				localStorage.setItem('shouldShowSubscribeBanner', false);
+			} else {
+				localStorage.setItem('shouldShowSubscribeBanner', true);
+			}
+		})
+	});
 	$(window).on('load',function(){
-		setTimeout(function() {
-			$("#onload-popup").modal('show', {}, 500);
-		}, 3000);
-		
+		const shouldDisplayModal = localStorage.getItem('shouldShowSubscribeBanner');
+		if(shouldDisplayModal || shouldDisplayModal == null || shouldDisplayModal == undefined) {
+			setTimeout(function() {
+				$("#onload-popup").modal('show', {}, 500);
+			}, 3000);
+		}
 	});
 	
 })(jQuery);
