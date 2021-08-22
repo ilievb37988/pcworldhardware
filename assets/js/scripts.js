@@ -462,6 +462,17 @@ PAGE JS
 		slick_slider();
 	});
 	
+		
+	/*===================================*
+	10. SLIDER JS
+	*===================================*/
+	const params = new URLSearchParams(location.search);
+	if (params.get('form') === 'success') {
+		const al = '<div style="text-align: center" class="alert alert-success alert-dismissible fade show" role="alert">Your message has been sent successfully!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
+		$("header").after(al);
+	}
+	console.log(params.get('form'));
+
 	/*===================================*
 	12. POPUP JS
 	*===================================*/
